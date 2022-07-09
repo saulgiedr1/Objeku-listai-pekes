@@ -25,6 +25,10 @@ public class PagrindinePrograma {
 
         System.out.println("Brangiausia preke  = " + brangiausiaPreke(prekes));
 
+        System.out.println("----------------------------------- ");
+
+        System.out.println("Brangiausia preke sarase = " + brangiausiaPrekeSarase(prekes));
+
 
     }
 
@@ -84,7 +88,7 @@ public class PagrindinePrograma {
     public static ArrayList<Preke> brangiausiaPrekeSarase(List<Preke> prekes) {
         ArrayList<Preke> brangiausia = new ArrayList<>() ;
         for (Preke preke : prekes){
-            if(brangiausiaPreke()){
+            if(preke.getKaina() == brangiausiaPreke(prekes)){
               brangiausia.add(preke);
            }
         }
