@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Preke {
 
     private int id;
@@ -27,6 +25,15 @@ public class Preke {
     public boolean arYraSandelyje(){
         return kiekis > 0;
     }
+
+    public void pritaikytiNuolaida(int pr){
+
+             kaina = kaina - (kaina*pr/100);
+        }
+
+
+
+
 
 
     //geteriai seteriai;
