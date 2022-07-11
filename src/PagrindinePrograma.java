@@ -37,8 +37,9 @@ public class PagrindinePrograma {
         System.out.println("----------------------------------- ");
 
 
-        ArrayList<Preke> nuolaidosPagalKaina = kainaDidesneUzNurodyta(prekes);
-        isvestiListaAtskiraiEilutemis(nuolaidosPagalKaina);
+        System.out.println("ČIA JAU PO NUOLAIDOS VISOS PREKĖS: ");
+        pritaikytiNuolaidaBrangesnemUz600(prekes);
+        isvestiListaAtskiraiEilutemis(prekes);
 
         System.out.println("----------------------------------- ");
 
@@ -115,36 +116,14 @@ public class PagrindinePrograma {
     }
 
 
-    public static ArrayList<Preke>kainaDidesneUzNurodyta(List<Preke> prekes){
-        ArrayList<Preke> prekesKuriuKainaDidesneUz = new ArrayList<>() ;
-        for (Preke preke : prekes){
-            if(preke.getKaina()>600){
-                prekesKuriuKainaDidesneUz.add(preke);
-            }
-        }
-        return prekesKuriuKainaDidesneUz ;
-    }
-
-    public static double kainaDidesneUz(List<Preke> prekes){
+    public static void pritaikytiNuolaidaBrangesnemUz600(List<Preke> prekes){
         double kaina =0;
         for (Preke preke : prekes){
             if(preke.getKaina() > 600){
-                kaina=preke.pritaikytiNuolaida();
+                preke.pritaikytiNuolaida(10);
             }
         }
-        return kaina;
     }
-
-    public static ArrayList<Preke>kainaSuNuolaida(List<Preke> prekes){
-        ArrayList<Preke>kainaPritaikiusNuolaida = new ArrayList<>();
-        for (Preke preke : prekes){
-            if (preke.getKaina() == kainaDidesneUz(prekes)); {
-                kainaPritaikiusNuolaida.add(preke);
-            }
-        }
-        return kainaPritaikiusNuolaida;
-    }
-
 
 
     public static ArrayList<Preke>taikomaNuolaidaPagalPavadinima(List<Preke> prekes){
