@@ -37,8 +37,8 @@ public class PagrindinePrograma {
         System.out.println("----------------------------------- ");
 
 
-        ArrayList<Preke> nuolaidosPagalKaina = kainaDidesneUzNurodyta(prekes);
-        isvestiListaAtskiraiEilutemis(nuolaidosPagalKaina);
+        pritaikytiNuolaidaPrekemsBrangesnemsUz600(prekes);
+        isvestiListaAtskiraiEilutemis(prekes);
 
         System.out.println("----------------------------------- ");
 
@@ -125,7 +125,7 @@ public class PagrindinePrograma {
         return prekesKuriuKainaDidesneUz ;
     }
 
-    public static double kainaDidesneUz(List<Preke> prekes){
+    public static double pritaikytiNuolaidaPrekemsBrangesnemsUz600(List<Preke> prekes){
         double kaina =0;
         for (Preke preke : prekes){
             if(preke.getKaina() > 600){
