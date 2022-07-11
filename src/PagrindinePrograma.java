@@ -7,10 +7,6 @@ import java.util.Scanner;
 public class PagrindinePrograma {
     public static void main(String[] args) {
 
-        Preke kaina1=new Preke();
-        kaina1.pritaikytiNuolaida(10);
-
-
 
         Scanner skaitytuvas = new Scanner(System.in);
         ArrayList<Preke> prekes = nuskaitoPrekesIsFailo("prekes.csv");
@@ -34,20 +30,31 @@ public class PagrindinePrograma {
 
         System.out.println("Brangiausia preke sarase = " + brangiausiaPrekeSarase(prekes));
 
-        System.out.println("----------------------------------- ");
+        System.out.println("----------------------------");
+
+        System.out.println("Kurioms bus taikoma nuolaida, nes jos brangesnes uz 600 ");
+
+        ArrayList<Preke> nuolaidosPagalKaina = brangesnesUz600(prekes);
+        isvestiListaAtskiraiEilutemis(nuolaidosPagalKaina);
+
 
 
 
         System.out.println("ČIA JAU PO NUOLAIDOS VISOS PREKĖS: ");
-        pritaikytiNuolaidaBrangesnemUz600(prekes);
 
-        pritaikytiNuolaidaPrekemsBrangesnemsUz600(prekes);
 
-        isvestiListaAtskiraiEilutemis(prekes);
 
         System.out.println("----------------------------------- ");
 
 
+        pritaikytiNuolaidaPrekemsBrangesnemsUz600(prekes);
+        isvestiListaAtskiraiEilutemis(prekes);
+
+
+
+
+
+        System.out.println("----------------------------------- ");
 
 
         ArrayList<Preke> nuolaidosPagalPavadinima = taikomaNuolaidaPagalPavadinima(prekes);
@@ -100,58 +107,59 @@ public class PagrindinePrograma {
     }
 
     public static double brangiausiaPreke(List<Preke> prekes) {
-        double laikinasMax = 0 ;
-        for (Preke preke : prekes){
-            if(laikinasMax < preke.getKaina()){
+        double laikinasMax = 0;
+        for (Preke preke : prekes) {
+            if (laikinasMax < preke.getKaina()) {
                 laikinasMax = preke.getKaina();
             }
         }
-        return  laikinasMax;
+        return laikinasMax;
     }
 
     public static ArrayList<Preke> brangiausiaPrekeSarase(List<Preke> prekes) {
-        ArrayList<Preke> brangiausia = new ArrayList<>() ;
-        for (Preke preke : prekes){
-            if(preke.getKaina() == brangiausiaPreke(prekes)){
-              brangiausia.add(preke);
-           }
+        ArrayList<Preke> brangiausia = new ArrayList<>();
+        for (Preke preke : prekes) {
+            if (preke.getKaina() == brangiausiaPreke(prekes)) {
+                brangiausia.add(preke);
+            }
         }
-        return  brangiausia;
+        return brangiausia;
     }
 
 
+    public static ArrayList<Preke> brangesnesUz600(List<Preke> prekes) {
 
-    public static void pritaikytiNuolaidaBrangesnemUz600(List<Preke> prekes){
-
-    public static ArrayList<Preke>kainaDidesneUzNurodyta(List<Preke> prekes){
-        ArrayList<Preke> prekesKuriuKainaDidesneUz = new ArrayList<>() ;
-        for (Preke preke : prekes){
-            if(preke.getKaina()>600){
+        ArrayList<Preke> prekesKuriuKainaDidesneUz = new ArrayList<>();
+        for (Preke preke : prekes) {
+            if (preke.getKaina() > 600) {
                 prekesKuriuKainaDidesneUz.add(preke);
             }
         }
-        return prekesKuriuKainaDidesneUz ;
+        return prekesKuriuKainaDidesneUz;
+
+
     }
 
-    public static double pritaikytiNuolaidaPrekemsBrangesnemsUz600(List<Preke> prekes){
+    public static double pritaikytiNuolaidaPrekemsBrangesnemsUz600(List<Preke> prekes) {
 
-        double kaina =0;
-        for (Preke preke : prekes){
-            if(preke.getKaina() > 600){
+        double kaina = 0;
+        for (Preke preke : prekes) {
+            if (preke.getKaina() > 600) {
                 preke.pritaikytiNuolaida(10);
             }
         }
+        return kaina;
     }
 
 
-    public static ArrayList<Preke>taikomaNuolaidaPagalPavadinima(List<Preke> prekes){
-        ArrayList<Preke> prekesSuNuolaida = new ArrayList<>() ;
-        for (Preke preke : prekes){
-            if(preke.getPavadinimas().equals("Stalas")){
+    public static ArrayList<Preke> taikomaNuolaidaPagalPavadinima(List<Preke> prekes) {
+        ArrayList<Preke> prekesSuNuolaida = new ArrayList<>();
+        for (Preke preke : prekes) {
+            if (preke.getPavadinimas().equals("Stalas")) {
                 prekesSuNuolaida.add(preke);
             }
         }
-        return prekesSuNuolaida ;
+        return prekesSuNuolaida;
     }
 
 }
