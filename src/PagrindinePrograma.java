@@ -37,8 +37,12 @@ public class PagrindinePrograma {
         System.out.println("----------------------------------- ");
 
 
+
         System.out.println("ČIA JAU PO NUOLAIDOS VISOS PREKĖS: ");
         pritaikytiNuolaidaBrangesnemUz600(prekes);
+
+        pritaikytiNuolaidaPrekemsBrangesnemsUz600(prekes);
+
         isvestiListaAtskiraiEilutemis(prekes);
 
         System.out.println("----------------------------------- ");
@@ -116,7 +120,21 @@ public class PagrindinePrograma {
     }
 
 
+
     public static void pritaikytiNuolaidaBrangesnemUz600(List<Preke> prekes){
+
+    public static ArrayList<Preke>kainaDidesneUzNurodyta(List<Preke> prekes){
+        ArrayList<Preke> prekesKuriuKainaDidesneUz = new ArrayList<>() ;
+        for (Preke preke : prekes){
+            if(preke.getKaina()>600){
+                prekesKuriuKainaDidesneUz.add(preke);
+            }
+        }
+        return prekesKuriuKainaDidesneUz ;
+    }
+
+    public static double pritaikytiNuolaidaPrekemsBrangesnemsUz600(List<Preke> prekes){
+
         double kaina =0;
         for (Preke preke : prekes){
             if(preke.getKaina() > 600){
