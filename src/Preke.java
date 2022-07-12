@@ -26,7 +26,7 @@ public class Preke {
         return kiekis > 0;
     }
 
-    public void pritaikytiNuolaida(int pr){
+    public void pritaikytiNuolaida(double pr){
 
              kaina = kaina - (kaina*pr/100);
         }

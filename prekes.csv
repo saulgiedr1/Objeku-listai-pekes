@@ -3,7 +3,7 @@ id,pavadinimas,aprašymas,kaina,kiekis,kategorija,medžiaga
 2,Kėdė,Plastikinė sulankstoma kėdė,59.99,0,baldai,plastikas
 3,Kėdė,Metalinė sulankstoma kėdė,29.99,8,baldai,aliuminis
 4,Kėdė,Medinė Kėdė,59.99,0,baldai,medis
-5,Stalas,Medinis stalas,109.99,0,baldai,medis
+5,Stalas,Medinis stalas,109.99,10,baldai,medis
 6,Stalas,Kavos stalas,705.99,1,baldai,marmuras
 7,Spinta,Medinė spinta,209.99,9,baldai,medis
 8,Spinta,Medinė spinta,159.99,5,baldai,medis

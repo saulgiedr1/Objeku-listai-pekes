@@ -13,7 +13,7 @@ public class PagrindinePrograma {
 
         isvestiListaAtskiraiEilutemis(prekes);
 
-        System.out.println("----------------------------------- ");
+        System.out.println("Sandelyje esancios prekes ");
 
         ArrayList<Preke> esanciosPrekes = rastiPrekesSandelyje(prekes);
         isvestiListaAtskiraiEilutemis(esanciosPrekes);
@@ -37,28 +37,31 @@ public class PagrindinePrograma {
         ArrayList<Preke> nuolaidosPagalKaina = brangesnesUz600(prekes);
         isvestiListaAtskiraiEilutemis(nuolaidosPagalKaina);
 
+        System.out.println("Prekes pavadinimu Stalas pries nuolaidas ");
 
-
-
-        System.out.println("ČIA JAU PO NUOLAIDOS VISOS PREKĖS: ");
-
-
+        ArrayList<Preke> nuolaidosPagalPavadinima = prekesPavavadinimuStalas(prekes);
+        isvestiListaAtskiraiEilutemis(nuolaidosPagalPavadinima);
 
         System.out.println("----------------------------------- ");
 
+        System.out.println("ČIA JAU PO NUOLAIDOS VISOS PREKĖS (nuolaida tik brangesnems uz 600): ");
+
+        System.out.println("----------------------------------- ");
 
         pritaikytiNuolaidaPrekemsBrangesnemsUz600(prekes);
         isvestiListaAtskiraiEilutemis(prekes);
 
-
-
-
-
         System.out.println("----------------------------------- ");
 
+        System.out.println("Nulaidos Stalams ");
 
-        ArrayList<Preke> nuolaidosPagalPavadinima = taikomaNuolaidaPagalPavadinima(prekes);
-        isvestiListaAtskiraiEilutemis(nuolaidosPagalPavadinima);
+        pritaikytiNuolaidaPrekemsStalas(prekes);
+        isvestiListaAtskiraiEilutemis(prekes);
+
+        System.out.println("Sarasas pagal kategorija ");
+
+        ArrayList<Preke> prekiuSarasasPagalKategorija = sarasasPagalKategorija(prekes);
+        isvestiListaAtskiraiEilutemis(prekiuSarasasPagalKategorija);
 
 
     }
@@ -152,14 +155,34 @@ public class PagrindinePrograma {
     }
 
 
-    public static ArrayList<Preke> taikomaNuolaidaPagalPavadinima(List<Preke> prekes) {
-        ArrayList<Preke> prekesSuNuolaida = new ArrayList<>();
+    public static ArrayList<Preke> prekesPavavadinimuStalas(List<Preke> prekes) {
+        ArrayList<Preke> prekesStalas = new ArrayList<>();
         for (Preke preke : prekes) {
             if (preke.getPavadinimas().equals("Stalas")) {
-                prekesSuNuolaida.add(preke);
+                prekesStalas.add(preke);
             }
         }
-        return prekesSuNuolaida;
+        return prekesStalas;
     }
 
+    public static double pritaikytiNuolaidaPrekemsStalas(List<Preke> prekes) {
+
+        double kaina = 0;
+        for (Preke preke : prekes) {
+            if (preke.getPavadinimas().equals("Stalas")) {
+                preke.pritaikytiNuolaida(42.5);
+            }
+        }
+        return kaina;
+    }
+
+    public static ArrayList<Preke> sarasasPagalKategorija(List<Preke> prekes) {
+        ArrayList<Preke> kategorija = new ArrayList<>();
+        for (Preke preke : prekes) {
+            if (preke.getKategorija().equals("elektronika")) {
+                kategorija.add(preke);
+            }
+        }
+        return kategorija;
+    }
 }
